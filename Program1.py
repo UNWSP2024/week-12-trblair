@@ -1,0 +1,21 @@
+import tkinter as tk
+import tkinter.messagebox
+window=tk.Tk()
+miles_var=tk.StringVar()
+gas_var=tk.StringVar()
+def mpg():
+    miles=miles_var.get()
+    gas=gas_var.get()
+    milespergallon=int(miles)/int(gas)
+    tkinter.messagebox.showinfo(title="Miles per gallon", message="Your car has "+str(milespergallon)+" miles per gallon")
+miles_label = tk.Label(window, text = 'How many miles can you get from 1 full tank of gas?', font=('calibre',10, 'bold'))
+miles_entry = tk.Entry(window,textvariable = miles_var, font=('calibre',10,'normal'))
+gas_label = tk.Label(window, text = 'How many gallons of gas does your car hold?', font = ('calibre',10,'bold'))
+gas_entry=tk.Entry(window, textvariable = gas_var, font = ('calibre',10,'normal'))
+sub_btn=tk.Button(window,text = 'Submit', command = mpg)
+miles_label.grid(row=0,column=0)
+miles_entry.grid(row=0,column=1)
+gas_label.grid(row=1,column=0)
+gas_entry.grid(row=1,column=1)
+sub_btn.grid(row=2,column=1)
+window.mainloop()
